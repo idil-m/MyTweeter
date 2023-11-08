@@ -1,0 +1,30 @@
+header { 
+  height: 400px;
+  width: 100%;
+  background-color: #fb137b;
+  background-image: url("https://www.transparenttextures.com/patterns/diagmonds-light.png");
+  color: #000000;
+  top: 120px;
+  left:0;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+
+
+.avatar{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.name{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
