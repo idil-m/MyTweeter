@@ -1,9 +1,10 @@
 
 .counter {
   font-weight: bold; 
-  color: #aaa;
+  color: #545149;
   display: flex;
   justify-content: flex-end;
+  
   
 }
 .textarea{
@@ -33,4 +34,8 @@
   cursor: pointer; 
   display: flex;
   justify-content: center;
+}
+
+.overLimit {
+  color: #ff0000; 
 }
