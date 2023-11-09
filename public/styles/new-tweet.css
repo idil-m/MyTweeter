@@ -1,0 +1,36 @@
+
+.counter {
+  font-weight: bold; 
+  color: #aaa;
+  display: flex;
+  justify-content: flex-end;
+  
+}
+.textarea{
+  width: 100%;
+  padding: 10px;
+  font-family:'Source Sans 3', sans-serif;
+  border-bottom: 2px solid  #545149;
+
+}
+
+.text {
+  border-bottom: 1px solid  #545149;
+  padding-bottom: 10px; 
+  margin-bottom: 20px; 
+  display: flex;
+  flex-direction: column;
+
+}
+
+.tweet-button {
+  background-color:#4056A1; 
+  color: #FFFFFF; 
+  padding: 10px 20px;
+  border: none; 
+  font-weight: bold; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  display: flex;
+  justify-content: center;
+}
