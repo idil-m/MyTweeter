@@ -51,34 +51,34 @@
         <h2>Compose Tweet</h2>
         <form action="/tweets" method="POST">
           <label for="tweet-text"class="text">What are you humming about?</label>
-          <textarea class="textarea" name="text" id="tweet-text"></textarea>
+          <input class="textarea" name="text" id="tweet-text" >
+          </input>
           <div>
             <button type="submit" class="tweet-button">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
+            <div name="counter" class="counter" for="tweet-text">140</div>
           </div>
         </form>
-        </section>
-      <article>
-        <header>
-        <img src ="" alt="Profile Picture">
-        <h2 class="name">Newton</h2>
-        <h3 class="userHandle">@SirIsaac</h3>
-      </header>
-      <p>Today I bought a raincoat and wore it on a sunny day.</p>
-      <footer>
-      <time datetime="2023-04-01">10 days ago</time>
-      <div>
-        <button  class="fa-solid fa-heart"></button>
-        <button class="fa-solid fa-retweet"></button>
-        <button class="fa-solid fa-flag"></button>
-
-      </div>
-    </footer>
-      </article>
-        
-        
-        
+      </section>
       
+      <article>
+        <div class="tweet-card-header">
+          <div class="profile">
+            <img src ="https://www.shareicon.net/data/128x128/2016/05/26/771188_man_512x512.png" alt="Profile Picture" class="tweet-card-header-profile-img">
+            <h2 >Newton</h2>
+          </div>
+          <h3 >@SirIsaac</h3>
+        </div>
+        <p>Today I bought a raincoat and wore it on a sunny day.</p>
+        <footer>
+          <time datetime="2023-04-01">10 days ago</time>
+          <div>
+            <button  class="fa-solid fa-heart"></button>
+            <button class="fa-solid fa-retweet"></button>
+            <button class="fa-solid fa-flag"></button>
+          </div>
+        </footer>
+      </article>
+         
     </main>
     
   </body>

@@ -3,8 +3,7 @@ $(document).ready(function() {
   $('.new-tweet textarea').on('input',function() {
     const textLength = $(this).val().length;
     const remainingLength = length - textLength;
-    const counterElement = $('output.counter');
-    console.log(counterElement)
+    const counterElement = $('div.counter');
     counterElement.text(remainingLength);
     if (remainingLength < 0) {
       counterElement.addClass('overLimit');

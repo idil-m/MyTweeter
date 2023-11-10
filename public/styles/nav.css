@@ -15,9 +15,14 @@ nav span {
 
 
 .menu{
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
     
+  .fa-angles-down{
+    justify-content: center;
+    display: flex
   }
 
   
