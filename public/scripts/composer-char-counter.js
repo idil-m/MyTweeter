@@ -1,6 +1,6 @@
 $(document).ready(function() {
   const length = 140;
-  $('.new-tweet textarea').on('input',function() {
+  $('#tweet-text').on('input',function() {
     const textLength = $(this).val().length;
     const remainingLength = length - textLength;
     const counterElement = $('div.counter');
@@ -13,5 +13,4 @@ $(document).ready(function() {
   });
 });
   
-
 

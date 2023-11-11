@@ -75,6 +75,7 @@ const createTweetElement = function(tweet) {
 
 const renderTweets = function(tweets) {
   tweets.forEach(tweet => {
+    console.log("test", tweet)
     const $tweetElement = createTweetElement(tweet);
     $('#tweets-container').append($tweetElement);
   });
@@ -89,11 +90,18 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-  console.log($("#create-tweet-form"))
+  // Create tweet form
   $("#create-tweet-form").on("submit", (event) =>{
     event.preventDefault()
-    console.log(event)
-    
+    const tweetText = $('#tweet-text').val();
+    if (tweetText.length === 0) {
+      alert("Your tweet cannot be empty!");
+      return
+    } else if (tweetText.length > 140) {
+      alert("Your tweet exceeds the limit!");
+      return 
+    }
+
     let formData = $("#create-tweet-form").serialize();
     console.log(formData)
     $.ajax({
@@ -108,6 +116,16 @@ $(document).ready(function() {
             console.error(error)
         }
     });
+
+    loadTweets().then((tweets) => { 
+      let newtweets= []
+      newtweets.push(tweets.pop())
+      console.log(newtweets)
+      renderTweets(newtweets);
+    }).catch(error => {
+      console.error("Error loading tweets:", error);
+    });
+
 
 
   })
