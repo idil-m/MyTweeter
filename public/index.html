@@ -2,6 +2,8 @@
 <html lang="en">
   <head>
     <!-- Meta Information -->
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+
     <title>Tweeter - Home Page</title>
     <!-- Font links -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,59 +32,54 @@
   <body>
     <!-- Top nav bar (fixed) -->
     <nav>
-      <span>Tweeter</span>
+      <span class="nav-logo">
+        Tweeter
+      </span>
       
       <div class="menu">
         <span>Write a new tweet</span>
           <i class="fa-solid fa-angles-down"></i>
       </div>
     </nav>
+    <div class="site-container">
     <header>
-      <div class="avatar">
-          <img src="/images/profile-hex.png"> 
+      <div class="avatar-container">
+        <div class="avatar">
+            <img src="/images/profile-hex.png"> 
+        </div>
+        <div class="name">
+            <h2>
+              <span class="name-first">
+                FirstName
+              </span>
+              <span class="name-last">
+                  LastName
+              </span>
+
+            </h2>
+        </div>
       </div>
-      <br>
-      <div class="name">
-          <h2>Idil</h2>
-      </div>
-  </header>
+    </header>
 
     <!-- Page-specific (main) content here -->
     <main class="container" id="tweets-container">
       <section class="new-tweet">
-        <h2>Compose Tweet</h2>
         <form action="/tweets" method="POST" id="create-tweet-form">
-          <label for="tweet-text"class="text">What are you humming about?</label>
-          <input class="textarea" name="text" id="tweet-text" >
-          </input>
-          <div>
+          <label for="text" class="tweet-input-label">What are you humming about?</label>
+          <input id="tweet-text"  name="text" class="tweet-input" placeholder="What are you humming about?"></input>
+          <div class="new-tweet-footer">
             <button type="submit" class="tweet-button">Tweet</button>
-            <div name="counter" class="counter" for="tweet-text">140</div>
+            <div name="counter" class="counter">140</div>
           </div>
         </form>
       </section>
       
-      <!-- <article>
-        <div class="tweet-card-header">
-          <div class="profile">
-            <img src ="https://www.shareicon.net/data/128x128/2016/05/26/771188_man_512x512.png" alt="Profile Picture" class="tweet-card-header-profile-img">
-            <h2 >Newton</h2>
-          </div>
-          <h3 >@SirIsaac</h3>
-        </div>
-        <p>Today I bought a raincoat and wore it on a sunny day.</p>
-        <footer>
-          <time datetime="2023-04-01">10 days ago</time>
-          <div>
-            <button  class="fa-solid fa-heart"></button>
-            <button class="fa-solid fa-retweet"></button>
-            <button class="fa-solid fa-flag"></button>
-          </div>
-        </footer>
-      </article> -->
-         
+      <div id="error-messages"></div>
+
+
+
     </main>
-    
+    </div>
   </body>
   
 </html>

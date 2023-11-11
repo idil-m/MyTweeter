@@ -1,3 +1,6 @@
+/* global $ */
+/* global document */
+
 $(document).ready(function() {
   const length = 140;
   $('#tweet-text').on('input',function() {

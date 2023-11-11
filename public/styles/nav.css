@@ -1,5 +1,5 @@
 nav { 
-  height: 120px;
+  height: 60px;
   width: 100%;
   background-color: #4056A1;
   color: #FFFFFF;
@@ -7,10 +7,14 @@ nav {
   padding-right: 1.5em;
   display: flex;
   justify-content:space-between;
-  
+  align-items: center;
+}
+
+.nav-logo{
+  font-family: 'Bungee';
 }
 nav span {
-  font-family: 'Bungee',
+  font-size: 20px;
 }
 
 
@@ -18,14 +22,36 @@ nav span {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  cursor: pointer;
 }
     
-  .fa-angles-down{
-    justify-content: center;
-    display: flex
-  }
+.fa-angles-down {
+  justify-content: center;
+  display: flex;
+  font-size: 15px;
+  color: lightblue;
+  transition: transform 0.3s ease-in-out;
+}
 
-  
+.menu:hover .fa-angles-down{
+  animation: up-and-down 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes up-and-down {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(5px);
+  }
+}
    
 
 
+@media only screen and (max-width: 1024px) {
+  nav{
+    background-color: transparent ;
+    position: absolute;
+    margin-top: 20px;
+  }
+}

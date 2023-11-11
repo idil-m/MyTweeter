@@ -1,34 +1,14 @@
+/* global $ */
+/* global document */
+/* global timeago */
+
+
 /*
  * Client-side JS logic goes here
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1699430074581
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1699516474581
-  }
-];
 
 const loadTweets = function() {
   return new Promise((resolve, reject) => {
@@ -43,7 +23,7 @@ const loadTweets = function() {
       }
     });
   });
-}
+};
 
 const createTweetElement = function(tweet) {
   let timePassed = timeago.format(new Date(tweet.created_at));
@@ -75,59 +55,52 @@ const createTweetElement = function(tweet) {
 
 const renderTweets = function(tweets) {
   tweets.forEach(tweet => {
-    console.log("test", tweet)
     const $tweetElement = createTweetElement(tweet);
     $('#tweets-container').append($tweetElement);
   });
+};
+const showError = function(message) {
+  let error = document.getElementById('error-messages');
+  error.innerHTML = message;
+  error.style.display = 'block';
 };
 
 $(document).ready(function() {
   loadTweets().then(tweets => {
     renderTweets(tweets);
-  }).catch(error => {
-    console.error("Error loading tweets:", error);
   });
 });
 
 $(document).ready(function() {
-  // Create tweet form
+  
   $("#create-tweet-form").on("submit", (event) =>{
-    event.preventDefault()
+    event.preventDefault();
     const tweetText = $('#tweet-text').val();
     if (tweetText.length === 0) {
-      alert("Your tweet cannot be empty!");
-      return
+      showError("Your tweet cannot be empty!");
+      return;
     } else if (tweetText.length > 140) {
-      alert("Your tweet exceeds the limit!");
-      return 
+      showError("Your tweet exceeds the limit!");
+      return;
     }
 
     let formData = $("#create-tweet-form").serialize();
-    console.log(formData)
+    
     $.ajax({
-        type: "POST",
-        url: "/tweets",
-        data: formData, 
-        success: function(response) {
-            console.log("Tweet posted successfully");
-        },
-        error: function(xhr, status, error) {
-            console.error("Error posting tweet");
-            console.error(error)
-        }
+      type: "POST",
+      url: "/tweets",
+      data: formData,
     });
 
-    loadTweets().then((tweets) => { 
-      let newtweets= []
-      newtweets.push(tweets.pop())
-      console.log(newtweets)
+    loadTweets().then((tweets) => {
+      let newtweets = [];
+      newtweets.push(tweets.pop());
+      
       renderTweets(newtweets);
-    }).catch(error => {
-      console.error("Error loading tweets:", error);
     });
 
 
 
-  })
+  });
 
 });
