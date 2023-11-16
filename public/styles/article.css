@@ -39,6 +39,8 @@ article .tweet-card-header  h3 {
 
 article p {
   font-size: 1em; 
+  word-wrap: break-word; 
+  overflow-wrap: break-word;
 }
 
 article footer {

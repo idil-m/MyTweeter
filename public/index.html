@@ -64,6 +64,7 @@
     <!-- Page-specific (main) content here -->
     <main class="container" id="tweets-container">
       <section class="new-tweet">
+        <div id="error-messages"></div>
         <form action="/tweets" method="POST" id="create-tweet-form">
           <label for="text" class="tweet-input-label">What are you humming about?</label>
           <input id="tweet-text"  name="text" class="tweet-input" placeholder="What are you humming about?"></input>
@@ -74,7 +75,7 @@
         </form>
       </section>
       
-      <div id="error-messages"></div>
+      
 
 
 

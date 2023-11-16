@@ -65,11 +65,18 @@ const showError = function(message) {
   error.style.display = 'block';
 };
 
+const hideError = function() {
+  let error = document.getElementById('error-messages');
+  error.style.display = 'none';
+};
+
 $(document).ready(function() {
   loadTweets().then(tweets => {
     renderTweets(tweets);
   });
 });
+
+
 
 $(document).ready(function() {
   
@@ -83,24 +90,39 @@ $(document).ready(function() {
       showError("Your tweet exceeds the limit!");
       return;
     }
-
+  
     let formData = $("#create-tweet-form").serialize();
     
     $.ajax({
       type: "POST",
       url: "/tweets",
       data: formData,
+      success: function() {
+        $('#tweet-text').val(''); 
+        hideError();
+        loadTweets().then((tweets) => {
+          let newtweets = [];
+          newtweets.push(tweets.pop());
+          
+          renderTweets(newtweets);
+        });
+      }
     });
-
-    loadTweets().then((tweets) => {
-      let newtweets = [];
-      newtweets.push(tweets.pop());
-      
-      renderTweets(newtweets);
-    });
-
-
-
   });
-
+  
+  $('#tweet-text').on('input', function() {
+    const tweetText = $('#tweet-text').val();
+    if (tweetText.length > 0 && tweetText.length <= 140) {
+      hideError();
+    }
+    if (tweetText.length === 0) {
+      showError("Your tweet cannot be empty!");
+      return;
+    } else if (tweetText.length > 140) {
+      showError("Your tweet exceeds the limit!");
+      return;
+    }
+     
+  
+  });
 });
